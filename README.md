@@ -21,7 +21,7 @@ Resources:
 
 **Generating event.json as test payload when invoking `s3getobject` function locally**
 ```
-sam local generate-event s3 put --region ap-southeast-2 --bucket alicebob-predictorcloudformation --key 25d068740afd38d9161f6fa5bc54e225.template > event.json
+sam local generate-event s3 put --region ap-southeast-2 --bucket alicebobbucket-existingbucket --key readme.txt > event.json
 ```
 
 **Invoking `s3getobject` function locally**
