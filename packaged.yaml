@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: An Amazon S3 trigger that retrieves metadata for the object that has
+  been updated.
+Parameters:
+  BucketNameParameter:
+    Type: String
+Resources:
+  Bucket1:
+    Properties:
+      BucketName:
+        Ref: BucketNameParameter
+    Type: AWS::S3::Bucket
+  s3getobject:
+    Properties:
+      CodeUri: s3://alicebobbucket/f205a82da316cf9302aa7b01e1b3458e
+      Description: An Amazon S3 trigger that retrieves metadata for the object that
+        has been updated.
+      Events:
+        BucketEvent1:
+          Properties:
+            Bucket:
+              Ref: Bucket1
+            Events:
+            - s3:ObjectCreated:*
+          Type: S3
+      Handler: index.handler
+      MemorySize: 128
+      Policies:
+      - S3CrudPolicy:
+          BucketName:
+            Ref: BucketNameParameter
+      Runtime: nodejs6.10
+      Timeout: 3
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
