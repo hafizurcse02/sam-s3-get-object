@@ -1,4 +1,4 @@
-# sam-app
+# sam-s3-get-object
 
 
 ## Requirements
@@ -66,3 +66,6 @@ aws cloudformation describe-stacks \
     --stack-name samS3GetObject \
     --query 'Stacks[].Outputs'
 ``` 
+
+## References
+Original code was taken from https://github.com/awslabs/serverless-application-model/tree/master/examples/apps/s3-get-object
